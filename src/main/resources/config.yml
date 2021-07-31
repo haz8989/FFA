@@ -1,0 +1,2 @@
+# Should players health be refilled when they kill a player
+refill-health: true

@@ -1,5 +1,8 @@
 name: FFA
 author: HazeDev
 version: ${project.version}
-main: ${project.groupId}.FFA
-api-version: 1.16
+main: ${project.groupId}.FFAPlugin
+api-version: 1.12
+commands:
+  ffa:
+    description: 'FFA Command'
