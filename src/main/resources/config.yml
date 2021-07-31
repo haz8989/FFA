@@ -1,2 +1,2 @@
-# Should players health be refilled when they kill a player
+# Whether health should be refilled after a kill
 refill-health: true
