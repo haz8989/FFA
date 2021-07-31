@@ -1,0 +1,5 @@
+name: FFA
+author: HazeDev
+version: ${project.version}
+main: ${project.groupId}.FFA
+api-version: 1.16
