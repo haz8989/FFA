@@ -1,2 +1,10 @@
 # Whether health should be refilled after a kill
 refill-health: true
+
+# The death message to show
+# Available placeholders:
+# {world} - The world name
+# {killer} - The killers name
+# {died} - The player who died's name
+# {killer_health} - How much health the killer had
+death-message: "&5[{world}] &d{killer} &7killed &d{died} &7(&c{killer_health}&7hp)"

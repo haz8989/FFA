@@ -10,13 +10,9 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class FFAPlugin : JavaPlugin() {
 
-    lateinit var healthRefiller: HealthRefiller
-    lateinit var statisticManager: StatisticManager
-
-    override fun onLoad() {
-        healthRefiller = HealthRefiller()
-        statisticManager = StatisticManager(this)
-    }
+    val healthRefiller by lazy { HealthRefiller() }
+    val statisticManager by lazy { StatisticManager(this) }
+    val killFeed by lazy { KillFeed() }
 
     override fun onEnable() {
         Bukkit.getPluginManager().registerEvents(statisticManager, this)
@@ -37,6 +33,12 @@ class FFAPlugin : JavaPlugin() {
             Bukkit.getPluginManager().registerEvents(healthRefiller, this)
         } else {
             HandlerList.unregisterAll(healthRefiller)
+        }
+        if (config.isString("death-message")) {
+            killFeed.deathMessage = config.getString("death-message")
+            Bukkit.getPluginManager().registerEvents(killFeed, this)
+        } else {
+            HandlerList.unregisterAll(killFeed)
         }
     }
 
