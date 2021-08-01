@@ -1,4 +1,4 @@
-# FFA Plugin
+# FFA Plugin v0.2
 This is an FFA plugin for Spigot 1.12+ created upon request
 
 ## Features
