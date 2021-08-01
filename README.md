@@ -1,6 +1,6 @@
 # FFA Plugin v0.2
 This is an FFA plugin for Spigot 1.12+ created upon request<br>
-[Downloads](/releases)
+[Downloads](https://github.com/haz8989/FFA/releases)
 
 ## Features
 - Refill health after a kill (toggleable)
