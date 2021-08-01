@@ -1,5 +1,7 @@
 package me.hazedev.ffa
 
+import me.hazedev.ffa.stats.StatisticManager
+import me.hazedev.ffa.stats.StatisticPlaceholders
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -8,18 +10,24 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class FFAPlugin : JavaPlugin() {
 
-    private lateinit var healthRefiller: HealthRefiller
+    lateinit var healthRefiller: HealthRefiller
+    lateinit var statisticManager: StatisticManager
 
     override fun onLoad() {
         healthRefiller = HealthRefiller()
+        statisticManager = StatisticManager(this)
     }
 
     override fun onEnable() {
+        Bukkit.getPluginManager().registerEvents(statisticManager, this)
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            StatisticPlaceholders(this).register()
+        }
         reload()
     }
 
     override fun onDisable() {
-
+        save()
     }
 
     private fun reload() {
@@ -30,7 +38,10 @@ class FFAPlugin : JavaPlugin() {
         } else {
             HandlerList.unregisterAll(healthRefiller)
         }
+    }
 
+    private fun save() {
+        statisticManager.save()
     }
 
     override fun onCommand(
@@ -44,12 +55,12 @@ class FFAPlugin : JavaPlugin() {
                 if (sender.hasPermission("ffa.reload") && "reload".equals(args[0], true)) {
                     reload()
                     sender.sendMessage("&a[FFA] Successfully reloaded".addColor())
-                    return true;
+                    return true
                 }
             }
             sender.sendMessage("&cYou don't have permission to use this command".addColor())
         }
-        return true;
+        return true
     }
 
     override fun onTabComplete(

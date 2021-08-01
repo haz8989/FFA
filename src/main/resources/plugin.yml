@@ -2,7 +2,7 @@ name: FFA
 author: HazeDev
 version: ${project.version}
 main: ${project.groupId}.FFAPlugin
-api-version: 1.12
+softdepend: [PlaceholderAPI]
 commands:
   ffa:
     description: 'FFA Command'
