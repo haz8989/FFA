@@ -5,6 +5,7 @@ This is an FFA plugin for Spigot 1.12+ created upon request<br>
 ## Features
 - Refill health after a kill (toggleable)
 - Stats (See [Placeholders](#placeholders))
+- Configurable kill messages
 
 ## Commands
 *Command | Permission - Description*
@@ -13,6 +14,7 @@ This is an FFA plugin for Spigot 1.12+ created upon request<br>
 ## Config
 [Default config.yml](src/main/resources/config.yml)
 - `refill-health` - Whether health should be refilled after a kill
+- `death-message` - Message to display when a player dies ([placeholders](src/main/resources/config.yml))
 
 ## Placeholders
 - `%ffa_kills%` - Kills
