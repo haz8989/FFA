@@ -11,7 +11,7 @@ This is an FFA plugin for Spigot 1.12+ created upon request
 
 ## Config
 [Default config.yml](src/main/resources/config.yml)
-- `refill-health: true` - Whether health should be refilled after a kill
+- `refill-health` - Whether health should be refilled after a kill
 
 ## Placeholders
 - `%ffa_kills%` - Kills
